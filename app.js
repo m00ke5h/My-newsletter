@@ -2,7 +2,7 @@ const { response } = require('express');
 const express = require('express');
 const app = express();
 const https = require('https');
-const url = 'https://us5.api.mailchimp.com/3.0/lists/8e58208b21';
+const url = 'https://us5.api.mailchimp.com/3.0/lists/'+process.env.MAILCHIMP_LIST_ID;
 const port = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }))
@@ -32,7 +32,7 @@ app.post('/', (req, res) => {
 
   let options = {
     method: "POST",
-    auth: "kinetic:41c10cad6aeb6ed84db349b9822165af-us5"
+    auth: "kinetic:"+process.env.MAILCHIMP_API_KEY
   }
 
   const request = https.request(url, options, (response) => {
