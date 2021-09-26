@@ -32,7 +32,7 @@ app.post('/', (req, res) => {
 
   let options = {
     method: "POST",
-    auth: "kinetic:018ed3efc1b6808e1b2b6c4811b3cbe2-us5"
+    auth: "kinetic:41c10cad6aeb6ed84db349b9822165af-us5"
   }
 
   const request = https.request(url, options, (response) => {
@@ -57,5 +57,5 @@ app.post("/failure", (req, res) => {
 
 app.listen(port, () => console.log(`Server is running on port 3000!`))
 
-// API key - 018ed3efc1b6808e1b2b6c4811b3cbe2-us5
+// API key - 41c10cad6aeb6ed84db349b9822165af-us5
 // List ID - 8e58208b21
