@@ -2,7 +2,7 @@ const { response } = require('express');
 const express = require('express');
 const app = express();
 const https = require('https');
-const url = 'https://us5.api.mailchimp.com/3.0/lists/'+process.env.MAILCHIMP_LIST_ID;
+const url = 'https://us5.api.mailchimp.com/3.0/lists/'+process.env.MAILCHIMP_LIST_ID; // Get the MAILCHIMP_LIST_ID as an environment variable
 const port = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }))
@@ -32,7 +32,7 @@ app.post('/', (req, res) => {
 
   let options = {
     method: "POST",
-    auth: "kinetic:"+process.env.MAILCHIMP_API_KEY
+    auth: "kinetic:"+process.env.MAILCHIMP_API_KEY // Get the MAILCHIMP_API_KEY as an environment variable
   }
 
   const request = https.request(url, options, (response) => {
@@ -56,6 +56,3 @@ app.post("/failure", (req, res) => {
 })
 
 app.listen(port, () => console.log(`Server is running on port 3000!`))
-
-// API key - 41c10cad6aeb6ed84db349b9822165af-us5
-// List ID - 8e58208b21
